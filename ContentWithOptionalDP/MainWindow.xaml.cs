@@ -21,21 +21,21 @@ namespace ContentWithOptionalDP
     {
 
 
-        public object CCContent
+        public DependencyObject CCContent
         {
-            get { return (object)GetValue(CCContentProperty); }
+            get { return (DependencyObject)GetValue(CCContentProperty); }
             set { SetValue(CCContentProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for CCContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CCContentProperty =
-            DependencyProperty.Register("CCContent", typeof(object), typeof(MainWindow));
+            DependencyProperty.Register("CCContent", typeof(DependencyObject), typeof(MainWindow));
 
         public MainWindow()
         {
             InitializeComponent();
         }
-        public void SetContent(object content)
+        public void SetContent(DependencyObject content)
         {
             CCContent= content;
         }

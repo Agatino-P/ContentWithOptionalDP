@@ -70,8 +70,20 @@
             Grid.Row="2"
             Grid.Column="0"
             Click="btnOk_Click"
-            Content="Ok"
-            IsDefault="True" />
+            Content="{Binding ElementName=MWnd, Path=CCContent.IsValid, FallbackValue=FBValue}"
+            IsDefault="True">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=MWnd, Path=CCContent.IsValid, FallbackValue=True}" Value="False">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <CheckBox Content="Not Accepting Enter" Grid.Row="2" Grid.Column="1"/>
         <Button
             x:Name="btnCancel"
             Grid.Row="2"

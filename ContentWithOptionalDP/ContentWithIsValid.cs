@@ -8,8 +8,6 @@ namespace ContentWithOptionalDP
 {
     public class ContentWithIsValid : DependencyObject
     {
-        private bool _isValid;
-
         public ContentWithIsValid(bool isValid)
         {
             IsValid = isValid;
@@ -21,6 +19,16 @@ namespace ContentWithOptionalDP
             set { SetValue(IsValidProperty, value); }
         }
         public static readonly DependencyProperty IsValidProperty =
-            DependencyProperty.Register("IsValid", typeof(bool), typeof(ContentWithIsValid));
+            DependencyProperty.Register("IsValid", typeof(bool), typeof(ContentWithIsValid), new PropertyMetadata(false, onIsValidChange,isValidCoerce));
+
+        private static object isValidCoerce(DependencyObject d, object baseValue)
+        {
+            return baseValue;
+        }
+
+        private static void onIsValidChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            return;
+        }
     }
 }
